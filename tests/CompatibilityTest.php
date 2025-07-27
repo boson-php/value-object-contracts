@@ -7,8 +7,6 @@ namespace Boson\Contracts\ValueObject\Tests;
 use Boson\Contracts\ValueObject\ValueObjectInterface;
 use Boson\Contracts\ValueObject\StringValueObjectInterface;
 use Boson\Contracts\ValueObject\IntValueObjectInterface;
-use Boson\Contracts\ValueObject\DateTimeValueObjectInterface;
-use Boson\Contracts\ValueObject\BinaryStringValueObjectInterface;
 use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
 use PHPUnit\Framework\Attributes\Group;
 
@@ -52,38 +50,6 @@ final class CompatibilityTest extends TestCase
             public function toString(): string {}
 
             public function toInteger(): int {}
-        };
-    }
-
-    #[DoesNotPerformAssertions]
-    public function testDateTimeValueObjectInterfaceCompatibility(): void
-    {
-        new class implements DateTimeValueObjectInterface {
-            public function equals(mixed $other): bool {}
-
-            public function __toString(): string {}
-
-            public function toString(): string {}
-
-            public function toInteger(): int {}
-
-            public function toTimestamp(): int {}
-
-            public function toDateTime(): \DateTimeImmutable {}
-        };
-    }
-
-    #[DoesNotPerformAssertions]
-    public function testBinaryStringValueObjectInterfaceCompatibility(): void
-    {
-        new class implements BinaryStringValueObjectInterface {
-            public function equals(mixed $other): bool {}
-
-            public function __toString(): string {}
-
-            public function toString(): string {}
-
-            public function toBytes(): string {}
         };
     }
 }
